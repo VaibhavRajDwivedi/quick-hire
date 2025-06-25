@@ -18,6 +18,7 @@ function App() {
   const [role, setRole] = useState(getRoleWithExpiry());
 
   const isLoggedIn = !!token;
+  if(token === '') isLoggedIn = false
   const isAdmin = role === "ADMIN";
 
   const PrivateRoute = ({ children }) => {

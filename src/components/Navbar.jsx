@@ -14,7 +14,12 @@ function Navbar() {
   useEffect(() => {
     const checkLogin = () => {
       const token = getTokenWithExpiry();
-      setIsLoggedIn(!!token);
+      if(token === '') {
+        setIsLoggedIn(false)
+      }
+      else{
+        setIsLoggedIn((!!token));
+      }
     };
 
     checkLogin();

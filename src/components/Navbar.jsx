@@ -108,7 +108,7 @@ function Navbar() {
               localStorage.removeItem("token");
               localStorage.removeItem("role");
               setIsLoggedIn(false);
-              navigate('/');
+              navigate('/login');
             }}
             className="hidden sm:flex h-10 w-24 border-2 border-red-600 text-white rounded-full hover:bg-red-600 transition-all items-center justify-center"
           >

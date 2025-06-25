@@ -2,6 +2,8 @@ import { Link, useNavigate } from "react-router-dom"
 import { useState } from "react"
 import { div } from "framer-motion/client";
 import { setTokenWithExpiry } from "../utils/set-token";
+import { setRoleWithExpiry } from "../utils/set-role";
+import { clearToken } from "../utils/set-token";
 
 const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:8080';
 
@@ -19,9 +21,13 @@ function Login({ setIsLoggedIn }) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ username, password }),
       });
-      const token = await res.text();
+      const data = await res.json();
+      const token = data[0];
+      const role = data[1];
+      setRoleWithExpiry(role,86400000)
       setTokenWithExpiry(token, 86400000); 
       setIsLoggedIn(true);
+      window.dispatchEvent(new Event("authChange"));
       navigate('/');
     } catch (error) {
       console.error("Login failed:", error);

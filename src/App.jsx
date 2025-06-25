@@ -21,6 +21,7 @@ function App() {
   if(token === '') isLoggedIn = false
   const isAdmin = role === "ADMIN";
 
+
   const PrivateRoute = ({ children }) => {
     return isLoggedIn ? children : <Navigate to="/login" />;
   };

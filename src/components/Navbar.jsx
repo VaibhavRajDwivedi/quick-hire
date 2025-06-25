@@ -43,7 +43,6 @@ function Navbar() {
         }`}
     >
       <nav className="flex items-center justify-between px-4 md:px-8 h-16">
-        {/* Logo */}
         <div className="flex items-center">
           <Link
             to="/"
@@ -59,7 +58,6 @@ function Navbar() {
             </h3>
           </Link>
 
-          {/* Links */}
           <ul className="hidden lg:flex ml-8 space-x-6 text-white text-base font-medium divide-x divide-green-500">
             <li className="pr-6">
               <Link to="/hire-freelancers" className="hover:text-yellowgreen">
